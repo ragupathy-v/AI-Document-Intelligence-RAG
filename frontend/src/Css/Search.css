@@ -1,0 +1,70 @@
+.search-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.text-input {
+  flex: 1;
+  min-width: 180px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: border-color 0.15s ease;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: #fff;
+}
+
+.search-question {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.answer-block {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.answer-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.answer-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.answer-content p {
+  margin: 0 0 10px;
+}
+
+.answer-content pre {
+  background: var(--color-bg);
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.answer-content code {
+  background: var(--color-bg);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 13px;
+}

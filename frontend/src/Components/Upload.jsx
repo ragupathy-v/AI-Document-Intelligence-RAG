@@ -1,4 +1,4 @@
-
+import "../Css/Upload.css"
 import{useState} from 'react'
 import axios from 'axios'
 import Search from './Search'
@@ -23,13 +23,23 @@ function Upload() {
 
 
   return (
-    <div>
-        
-        <input type="file" placeholder="Upload your file" onChange={(e)=>{setFile(e.target.files[0])}} />
-        <button onClick={handelUpload}>upload</button>
+    <div className="upload-page">
+        <section className="card upload-card">
+            <h2 className="card-title">Upload a document</h2>
+            <p className="card-hint">Add a file to index it for search and Q&amp;A.</p>
+            <div className="upload-controls">
+                <input className="file-input" type="file" placeholder="Upload your file" onChange={(e)=>{setFile(e.target.files[0])}} />
+                <button className="btn btn-primary" onClick={handelUpload} disabled={!file}>Upload</button>
+            </div>
+            {data && (
+                <div className="upload-result">
+                    
+                    <p className="upload-result-text">file data extracted and ready to answer</p>
+                </div>
+            )}
+        </section>
 
         <Search/>
-        <p>{data}</p>
     </div>
   )
 }

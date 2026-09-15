@@ -77,7 +77,7 @@ async def search(question:str):
     question_embedding=np.array(question_embedding).astype("float32")
 
     #top 3 similar chunks
-    distence ,indice=index.search(question_embedding,3)
+    distence ,indice=index.search(question_embedding,6)
     
     #get the chunks from the indices
     result=[chunks[i] for i in indice[0]]

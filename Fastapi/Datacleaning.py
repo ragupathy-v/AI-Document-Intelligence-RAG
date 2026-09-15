@@ -4,12 +4,18 @@ def datacleaning(text:str):
     return text
 
 
-def chunk_data(text,size=1000):
-    words=text.split() 
-    chunks=[]
-    for chunk in range(0,len(words),size):
-        chunk=" ".join(words[chunk:chunk+size])
+def chunk_data(text,size=500, overlap=100):
+    words = text.split()
+    chunks = []
+
+    start = 0
+
+    while start < len(words):
+        end = start + size
+        chunk = " ".join(words[start:end])
         chunks.append(chunk)
+
+        start += size - overlap
    
     return chunks
 

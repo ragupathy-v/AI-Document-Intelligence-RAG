@@ -3,6 +3,8 @@ import React from 'react'
 import { useState } from 'react'
 import ReactMarkdown from "react-markdown"
 
+import "../Css/Search.css"
+
 function Search() {
  const[question,setQuestion]=useState("")
  const[answer,setAnswer]=useState("")
@@ -18,12 +20,20 @@ function Search() {
         }
     }
   return (
-    <div>Search
-        <input placeholder="Enter your question..." value={question} onChange={(e)=>{setQuestion(e.target.value)}}/>
-        <button onClick={handelsearch}>Search</button>
-        <p>question:{question}</p>
-        <p>answer:</p><ReactMarkdown>{answer}</ReactMarkdown>
-    </div>
+    <section className="card search-card">
+        <h2 className="card-title">Ask a question</h2>
+        <div className="search-controls">
+            <input className="text-input" placeholder="Enter your question..." value={question} onChange={(e)=>{setQuestion(e.target.value)}}/>
+            <button className="btn btn-primary" onClick={handelsearch} disabled={!question}>Search</button>
+        </div>
+        <p className="search-question">question: {question}</p>
+        <div className="answer-block">
+            <p className="answer-label">answer:</p>
+            <div className="answer-content">
+                <ReactMarkdown>{answer}</ReactMarkdown>
+            </div>
+        </div>
+    </section>
   )
 }
 
