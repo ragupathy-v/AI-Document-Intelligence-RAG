@@ -10,7 +10,7 @@ function Upload() {
         try{
             const formData= new FormData()
             formData.append('file',file)
-         const res= await axios.post("http://127.0.0.1:8000/home",formData)
+         const res= await axios.post("https://8000-dep-01m2m8kb8k5rext9my9dw13ykt-d.cloudspaces.litng.ai/home",formData)
          setData(res.data.content)
          console.log(res.data)
 

@@ -11,7 +11,7 @@ function Search() {
 
     const handelsearch= async()=>{
         try{
-            const res= await axios.get("http://127.0.0.1:8000/search",{params: { question } })
+            const res= await axios.get("https://8000-dep-01m2m8kb8k5rext9my9dw13ykt-d.cloudspaces.litng.ai/search",{params: { question } })
             console.log(res)
             setAnswer(res.data.answer)
         }
