@@ -2,6 +2,7 @@ import "../Css/Upload.css"
 import{useState} from 'react'
 import axios from 'axios'
 import Search from './Search'
+import {base_url} from '../variables'
 function Upload() {
 
     const [file,setFile]=useState(null)
@@ -10,7 +11,7 @@ function Upload() {
         try{
             const formData= new FormData()
             formData.append('file',file)
-         const res= await axios.post("https://8000-dep-01m2m8kb8k5rext9my9dw13ykt-d.cloudspaces.litng.ai/home",formData)
+         const res= await axios.post(`${base_url}/home`,formData)
          setData(res.data.content)
          console.log(res.data)
 
