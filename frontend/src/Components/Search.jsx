@@ -4,7 +4,7 @@ import { useState } from 'react'
 import ReactMarkdown from "react-markdown"
 
 import "../Css/Search.css"
-import {base_url} from "../variables.jsx"
+import {base_url,test_url} from "../variables.jsx"
 
 function Search() {
  const[question,setQuestion]=useState("")
@@ -22,15 +22,33 @@ function Search() {
     }
   return (
     <section className="card search-card">
-       
-        <h2 className="card-title">Ask a question</h2>
+
+        <div className="card-heading">
+            <span className="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="6.25" stroke="currentColor" strokeWidth="1.6" />
+                    <path d="m16 16 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                </svg>
+            </span>
+            <div className="card-heading-text">
+                <h2 className="card-title">Ask something about your uploaded document...</h2>
+            </div>
+        </div>
         <div className="search-controls">
-            <input className="text-input" placeholder="Enter your question..." value={question} onChange={(e)=>{setQuestion(e.target.value)}}/>
+            <div className="input-field">
+                <span className="input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="6.25" stroke="currentColor" strokeWidth="1.6" />
+                        <path d="m16 16 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                    </svg>
+                </span>
+                <input className="text-input" placeholder="Enter your question..." value={question} onChange={(e)=>{setQuestion(e.target.value)}}/>
+            </div>
             <button className="btn btn-primary" onClick={handelsearch} disabled={!question}>Search</button>
         </div>
-        <p className="search-question">question: {question}</p>
+        {answer && <p className="search-question">question: {question}</p>}
         <div className="answer-block">
-            <p className="answer-label">answer:</p>
+        {answer &&   <p className="answer-label">answer:</p>}
             <div className="answer-content">
                 <ReactMarkdown>{answer}</ReactMarkdown>
             </div>

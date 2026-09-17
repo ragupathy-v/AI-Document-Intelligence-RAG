@@ -56,7 +56,7 @@ async def home(file: UploadFile=File(...)):
     except:
         text="Error reading file"
 
-    return {"message":"upload your file", "filename":file.filename,"content":text,"chunks":chunks}
+    return {"message":"Document indexed successfully", "filename":file.filename,"content":text,"chunks":chunks,"chunks_count":len(chunks)}
 
 
 index_path="storage/faiss.index"
